@@ -1,8 +1,6 @@
 #!/bin/sh
 sudo make clean
 chmod 777 -R *
-sudo apt-get update
-sudo apt-get -y upgrade
 apt-get install libssl1.0-dev
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 cd `pwd`/depends
