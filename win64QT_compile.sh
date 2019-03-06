@@ -3,6 +3,7 @@ sudo make clean
 chmod 777 -R *
 sudo apt-get update
 sudo apt-get -y upgrade
+apt-get install libssl1.0-dev
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 cd `pwd`/depends
 sudo make -j4 HOST=x86_64-w64-mingw32
