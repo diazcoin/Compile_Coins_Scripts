@@ -6,7 +6,7 @@ sudo apt-get -y upgrade
 apt-get install libssl1.0-dev
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
 cd `pwd`/depends
-sudo make -j4 HOST=x86_64-w64-mingw32
+sudo make -j4 HOST=x86_64-w64-mingw32 --enable-tests=no
 cd ..
 sudo ./autogen.sh
 mkdir db4
@@ -17,7 +17,7 @@ cd db-4.8.30.NC/build_unix/
 sudo make install
 cd ../../
 sudo ./autogen.sh
-./configure LDFLAGS="-L`pwd`/db4/lib/" CPPFLAGS="-I`pwd`/db4/include/" --prefix=`pwd`/depends/x86_64-w64-mingw32
+./configure LDFLAGS="-L`pwd`/db4/lib/" CPPFLAGS="-I`pwd`/db4/include/" --prefix=`pwd`/depends/x86_64-w64-mingw32 --enable-tests=no
 sudo make -j4
 strip src/*.exe
 strip src/qt/*.exe
